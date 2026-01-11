@@ -1,0 +1,42 @@
+# Research-Plan
+
+## Goal
+The goal is to create an extensive benchmark of multiple machine learning–based methods for extracting specified information from unstructured documents and representing it in a structured format. The benchmark will evaluate multiple standalone OCR models combined with an LLM for information extraction, as well as VLM-based models.
+
+## Data
+The evaluation dataset consists of 100 course transcripts from applications to the Master’s program “Data Science” at the Berliner Hochschule für Technik. From each transcript, all courses, corresponding grades, and earned credits (where indicated) have been extracted and recorded in CSV format.
+
+## Models
+### OCR
+*for this selection the most popular OCR-models under the tag `OCR` on Github have been chosen*
+- [Tesseract](https://github.com/tesseract-ocr/tesseract)
+- [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
+    - PP-OCRv5
+    - PP-StructureV3
+- [MinerU](https://github.com/opendatalab/MinerU)
+- [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) (new)
+- [EasyOCR](https://github.com/JaidedAI/EasyOCR)
+
+### VLM
+- PaddleOCR-VL
+
+### LLM
+*only using one LLM, deciding for Qwen3 as it offers a lot of different sizes in Ollamas model zoo*
+- Qwen3
+    - 0.6b
+    - 4b
+    - 14b
+    - 32b
+    - 235b
+
+
+## Evaluation
+*w.i.p.*
+
+---
+
+## To-Do
+- look for often used OCR models in other sources, pref. Open-Source
+- look for popular openly usable VLMs
+- check how other papers work with LLMs (using only one or mulitple?)
+- figure out a plan (procedure, metrics) for evaluation
