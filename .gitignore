@@ -218,3 +218,5 @@ __marimo__/
 # Misc
 ## any folder in data -> private data
 data/*/
+
+output/
