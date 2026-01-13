@@ -57,4 +57,5 @@ for i, element in enumerate(text_elements):
     #     text += '\t' 
     text += '\t'
                 
-print(text)
+with open("test.txt", "w", encoding="utf-8") as f:
+    f.write(text)
