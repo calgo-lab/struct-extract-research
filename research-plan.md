@@ -6,6 +6,8 @@ The goal is to create an extensive benchmark of multiple machine learning–base
 ## Data
 The evaluation dataset consists of 100 course transcripts from applications to the Master’s program “Data Science” at the Berliner Hochschule für Technik. From each transcript, all courses, corresponding grades, and earned credits (where indicated) have been extracted and recorded in CSV format.
 
+Have a look at: OmniDocBench and PubTabNet
+
 ## Hardware
 *w.i.p.*
 
