@@ -1,5 +1,6 @@
 # Script that evaluates the similarity of the .csv output of any tested model and the ground-truth .csv using data science typical metrics.
 import pandas as pd 
+from sklearn.metrics import precision_score, recall_score, f1_score
 
 output = "output/test.csv"
 gt = "data/eval/2_9.csv"
@@ -37,21 +38,16 @@ for df in df_list:
     # <CODE HERE>
 
 # evaluate 
-gt_set = set(gt_df.itertuples(index=False, name=None))
-out_set = set(output_df.itertuples(index=False, name=None))
-# TODO: check if this assignment makes sense
-# tp: exact row exists in both ground truth and output
-tp = len(gt_set & out_set)
-# fp: row exists only in output
-fp = len(out_set - gt_set)
-# fn: row only exists in ground truth
-fn = len(gt_set - out_set)
+# FIXME: check again if sets are the way to go - each row SHOULD only exist once, does it really though; is a check and notification if it doesnt enough?
+gt_rows = set(gt_df.itertuples(index=False, name=None))
+pred_rows = set(output_df.itertuples(index=False, name=None))
+all_rows = list(gt_rows | pred_rows)
+y_true = [1 if row in gt_rows else 0 for row in all_rows]
+y_pred = [1 if row in pred_rows else 0 for row in all_rows]
 
-# precision/recall/f1, but if empty tp/fp/fn exist, use -1 for debugging #TODO: figure out what to actually do with those - what would a 0 from tp + fp actually mean?
-precision = tp / (tp + fp) if (tp + fp) > 0 else -1
-recall = tp / (tp + fn) if (tp + fn) > 0 else -1
-f1 = 2 * ((precision * recall) / (precision + recall)) if (precision + recall) > 0 else -1
-
+precision = precision_score(y_true, y_pred)
+recall = recall_score(y_true, y_pred)
+f1 = f1_score(y_true, y_pred)
 # pretty print results
 results = {
     "Metric": [
@@ -70,11 +66,3 @@ df = pd.DataFrame(results)
 df["Value"] = df["Value"].map(lambda x: f"{x:.2f}")
 
 print(df.to_string(index=False))
-
-# TODO: if needed: add "detail-metrics" going over single rows/look where issues lay
-# for example:
-# gt_courses = set(zip(gt_df.academic_field, gt_df.course_name))
-# out_courses = set(zip(output_df.academic_field, output_df.course_name))
-
-# course_precision = len(gt_courses & out_courses) / len(out_courses)
-# course_recall = len(gt_courses & out_courses) / len(gt_courses)
