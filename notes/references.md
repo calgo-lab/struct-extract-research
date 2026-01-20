@@ -27,11 +27,16 @@
 
 ## OCR
 
-[Ref7] [Open-Source OCR Libraries: A Comprehensive Study for Low Resource Language](https://aclanthology.org/2024.icon-1.48/)
+[Ref7*] [Open-Source OCR Libraries: A Comprehensive Study for Low Resource Language](https://aclanthology.org/2024.icon-1.48/)
 
-[Ref8] [KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding](https://aclanthology.org/2025.findings-acl.1135/)
+[Ref8*] [KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding](https://aclanthology.org/2025.findings-acl.1135/)
 
 [Ref9] [MMOCR: A Comprehensive Toolbox for Text Detection, Recognition and Understanding](https://dl.acm.org/doi/abs/10.1145/3474085.3478328)
+
+[Ref14*] [Benchmarking Performance Analysis of Optical Character Recognition Techniques](https://ieeexplore.ieee.org/abstract/document/11004392)
+
+[Ref15] [Comparative Study of Different Optical Character Recognition Models on Handwritten and Printed Medical Reports](https://ieeexplore.ieee.org/abstract/document/10100213)
+
 
 ## VLM
 

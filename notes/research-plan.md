@@ -19,8 +19,10 @@ Have a look at: OmniDocBench and PubTabNet
     - PP-OCRv5
     - PP-StructureV3
 - [MinerU](https://github.com/opendatalab/MinerU)
-- [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) (new)
+- [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) 
 - [EasyOCR](https://github.com/JaidedAI/EasyOCR)
+- [MMOCR](https://github.com/open-mmlab/mmocr)  - hasn't been updated for a while, maybe don't use it
+- [docTR](https://github.com/mindee/doctr)
 
 ### VLM
 - PaddleOCR-VL
