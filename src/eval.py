@@ -39,6 +39,7 @@ for df in df_list:
 
 # evaluate 
 # FIXME: check again if sets are the way to go - each row SHOULD only exist once, does it really though; is a check and notification if it doesnt enough?
+# idea: use list for gt and delete elements if match exists while iterating through predictions! 
 gt_rows = set(gt_df.itertuples(index=False, name=None))
 pred_rows = set(output_df.itertuples(index=False, name=None))
 all_rows = list(gt_rows | pred_rows)
