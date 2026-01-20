@@ -40,8 +40,13 @@
 
 ## VLM
 
-[Re10] [A Survey of State of the Art Large Vision Language Models: Alignment,
-Benchmark, Evaluations and Challenges](https://arxiv.org/pdf/2501.02189)
+[Ref10*] [A Survey of State of the Art Large Vision Language Models: Alignment, Benchmark, Evaluations and Challenges](https://arxiv.org/abs/2501.02189)
+
+[Ref16] [A Survey on Efficient Vision-Language Models](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/widm.70036?saml_referrer)
+
+[Ref17] [A Survey on Benchmarks of Multimodal Large Language Models](https://arxiv.org/abs/2408.08632)
+
+(got enough with "popular" results from Ollama + the paper is REALLY extensive)
 
 ---
 

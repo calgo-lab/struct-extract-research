@@ -21,11 +21,21 @@ Have a look at: OmniDocBench and PubTabNet
 - [MinerU](https://github.com/opendatalab/MinerU)
 - [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) 
 - [EasyOCR](https://github.com/JaidedAI/EasyOCR)
+*additionally frequently named models, that havent been part of the list yet but perfomed well in other papers*
 - [MMOCR](https://github.com/open-mmlab/mmocr)  - hasn't been updated for a while, maybe don't use it
 - [docTR](https://github.com/mindee/doctr)
 
 ### VLM
+*popular VLMs on GitHub and Ollama*
 - PaddleOCR-VL
+- Gemma3
+*additionally frequently named models, that havent been part of the list yet but perfomed well in other papers*
+- DeepSeek-OCR - check because of "OCR"-name
+- Qwen3-VL
+- Qwen2.5VL
+- Llava
+- Gemini3-flash-preview
+
 
 ### LLM
 *only using one LLM, deciding for Qwen3 as it offers a lot of different sizes in Ollamas model zoo*
@@ -36,14 +46,11 @@ Have a look at: OmniDocBench and PubTabNet
     - 32b
     - 235b
 
-
 ## Evaluation
 *w.i.p.*
 
 ---
 
 ## To-Do
-- look for often used OCR models in other sources, pref. Open-Source
-- look for popular openly usable VLMs
 - check how other papers work with LLMs (using only one or mulitple?)
 - figure out a plan (procedure, metrics) for evaluation
