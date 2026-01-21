@@ -2,7 +2,9 @@
 
 ## 1. Figure Text Extraction in Biomedical Literature
 > **Metadata**
+>
 > 	**Link:** https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0015338
+>
 > 	**published in:** PLOS One
 
 - extraction from text out of figures in biomedical papers
@@ -19,7 +21,9 @@
 
 ## 2. Information extraction from scientific articles: a survey
 > **Metadata**
+>
 > 	**Link:** https://link.springer.com/article/10.1007/s11192-018-2921-5
+>
 > 	**published in:** Springer Nature
 
 - extraction of certain relevant insights from papers out of ACM and IEEE
@@ -31,7 +35,9 @@
 
 ## 3. A Benchmark and Evaluation for Text Extraction from PDF
 > **Metadata**
+>
 > 	**Link:** https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7991564
+>
 > 	**published in:** IEEE Xplore
 
 - creating ground truth by parsing LaTeX of scientific papers for arxiv
@@ -39,7 +45,9 @@
 
 ## 4. PaddleOCR 3.0 Technical Report
 > **Metadata**
+>
 > 	**Link:** https://arxiv.org/abs/2507.05595
+>
 > 	**published in:** arxiv
 
 - test of own models using known PDF-Datasets and selfmade private datasets covering different scenarios
@@ -48,7 +56,9 @@
 
 ## 5.  A Comparative Study of PDF Parsing Tools Across Diverse Document Categories
 > **Metadata**
+>
 > 	**Link:** https://arxiv.org/abs/2410.09871
+>
 > 	**published in:** arxiv
 
 - benchmark of PDF parsing tools using different data-sources

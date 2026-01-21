@@ -2,7 +2,9 @@
 
 ## 1. Open-Source OCR Libraries: A Comprehensive Study for Low Resource Language
 > **Metadata**
+>
 > 	**Link:** https://aclanthology.org/2024.icon-1.48.pdf
+>
 > 	**published in:** ACL Anthology
 
 - using OCR for the Malayalam language by leveraging models used for languages such as english or french
@@ -13,7 +15,9 @@
 
 ## 2. KITAB-Bench: A Comprehensive Multi-Domain Benchmark for Arabic OCR and Document Understanding
 >**Metadata**
+>
 >	**Link:** https://aclanthology.org/2025.findings-acl.1135.pdf
+>
 >	**published in:** ACL Anthology
 
 - specifies on extraction of arabic tests
@@ -23,7 +27,9 @@
 
 ## 3. Benchmarking Performance Analysis of Optical Character Recognition Techniques
 > **Metadata**
+>
 > 	**Link:** https://ieeexplore.ieee.org/abstract/document/11004392
+>
 > 	**published in:** IEEE
 
 - benchmarks "widely used OCR engines"
@@ -34,7 +40,9 @@
 
 ## 4. # Comparative Study of Different Optical Character Recognition Models on Handwritten and Printed Medical Reports
 > **Metadata**
+>
 > 	**Link:** https://ieeexplore.ieee.org/abstract/document/10100213
+>
 > 	**published in:** IEEE
 
 - uses tesseract and propietary OCR engines, therefor not of further interest for us
