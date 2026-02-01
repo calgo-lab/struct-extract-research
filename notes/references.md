@@ -6,6 +6,9 @@
 
 [Ref1] [Assessing the quality of information extraction](https://arxiv.org/html/2404.04068v1#bib.bib4)
 
+TODO: [Ref19] [A ROBUST FRAMEWORK FOR DATA EXTRACTION FROMUNSTRUCTURED SOURCES USING LARGE LANGUAGE MODELS](https://www.diva-portal.org/smash/record.jsf?pid=diva2%3A1967056&dswid=-273)
+
+[Ref20] [A Guide to Similarity Measures](https://arxiv.org/html/2408.07706v1)
 
 ## Extraction Metrics
 
@@ -24,6 +27,8 @@
 [Ref12*] [PaddleOCR 3.0 Technical Report](https://arxiv.org/abs/2507.05595)
 
 [Ref13*] [A Comparative Study of PDF Parsing Tools Across Diverse Document Categories](https://arxiv.org/abs/2410.09871)
+
+[Ref18*] [OmniDocBench: Benchmarking Diverse PDF Document Parsing with Comprehensive Annotations](https://arxiv.org/abs/2412.07626)
 
 ## OCR
 

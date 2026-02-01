@@ -56,11 +56,6 @@ Have a look at: OmniDocBench and PubTabNet
     - 235b
 
 ## Evaluation
-*w.i.p.*
+check `evaluation.md`
 
 ---
-
-## To-Do
-- check how other papers work with LLMs (using only one or mulitple?) -> quick check: both seem to work, current option to put less focus on the LLM used, otherwise often multiple LLMs like 2 or 3 are used maybe use three of similar sizes
-
-- figure out a plan (procedure, metrics) for evaluation
