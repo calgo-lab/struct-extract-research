@@ -1,0 +1,4 @@
+- [X] Ollama PVC mit allen Modellen befüllen
+- [X] upload images and pdfs to cluster pvc for access
+- [ ] Code schreiben der mit OCR und LLM arbeitet
+- [ ] Script erstellen der den Code runned und auf die Ollama-Modelle über den PVC zugreift

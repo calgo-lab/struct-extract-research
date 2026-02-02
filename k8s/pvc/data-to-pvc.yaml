@@ -1,0 +1,19 @@
+# pod that allows access to pvc
+# copy data via: kubectl cp ./data/images data-uploader:/data/images -n calgo-lab
+apiVersion: v1
+kind: Pod
+metadata:
+  name: benchmark-data-uploader
+  namespace: calgo-lab
+spec:
+  containers:
+    - name: uploader
+      image: busybox
+      command: ["sleep", "3600"]
+      volumeMounts:
+        - name: data-storage
+          mountPath: /data
+  volumes:
+    - name: data-storage
+      persistentVolumeClaim:
+        claimName: pdf-extraction-data-pvc

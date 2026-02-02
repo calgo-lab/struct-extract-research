@@ -1,0 +1,13 @@
+# pvc claim for data that is to be extracted
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pdf-extraction-data-pvc
+  namespace: calgo-lab
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: cephcsi
+  resources:
+    requests:
+      storage: 5Gi  # Give some headroom beyond 1GB
