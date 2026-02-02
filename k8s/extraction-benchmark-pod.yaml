@@ -27,7 +27,7 @@ spec:
     gpu: h200  # BE CAREFUL WITH THIS!
   containers:
     - name: extraction-benchmark-pod
-      image: pytorch/pytorch:2.10.0-cuda13.0-cudnn9-runtime
+      image: 2.10.0-cuda12.8-cudnn9-runtime
       imagePullPolicy: IfNotPresent
       command:
         - "/bin/sh"
