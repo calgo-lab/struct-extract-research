@@ -1,0 +1,18 @@
+# kubectl exec -it pvc-inspector -n calgo-lab -- sh
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pvc-inspector
+  namespace: calgo-lab
+spec:
+  containers:
+    - name: inspector
+      image: busybox
+      command: ["sleep", "3600"]  # keep pod alive
+      volumeMounts:
+        - name: ollama-models
+          mountPath: /mnt/ollama
+  volumes:
+    - name: ollama-models
+      persistentVolumeClaim:
+        claimName: pdf-extraction-ollama-models-pvc

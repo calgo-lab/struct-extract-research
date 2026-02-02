@@ -1,0 +1,36 @@
+# run once, installs all needed LLMs and VLMs for ollama onto a pvc
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ollama-pvc-copy-pod
+  namespace: calgo-lab
+spec:
+  restartPolicy: Never
+  containers:
+    - name: ollama
+      image: ollama/ollama:latest
+      command: ["/bin/sh", "-c"]
+      args:
+        - |
+          ollama serve &
+          sleep 10
+          ollama pull qwen3:0.6b
+          ollama pull qwen3:4b
+          ollama pull qwen3:14b
+          ollama pull qwen3:32b
+          ollama pull qwen3:235b
+          ollama pull gemma3:27b
+          ollama pull qwen2.5vl:32b
+          ollama pull qwen3-vl:32b
+          ollama pull llava:34b
+          ollama pull deepseek-ocr:3b
+          ollama pull ministral-3:14b
+          echo "All models downloaded successfully"
+          sleep 3600
+      volumeMounts:
+        - name: ollama-model-storage
+          mountPath: /root/.ollama/models
+  volumes:
+    - name: ollama-model-storage
+      persistentVolumeClaim:
+        claimName: pdf-extraction-ollama-models-pvc

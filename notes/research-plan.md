@@ -34,15 +34,15 @@ Have a look at: OmniDocBench and PubTabNet
 *popular VLMs on GitHub and Ollama*
 
 - PaddleOCR-VL
-- Gemma3
+- Gemma3 -27b (similar size for the others, if possible)
 
 *additionally frequently named models, that havent been part of the list yet but perfomed well in other papers*
 
-- DeepSeek-OCR - check because of "OCR"-name
-- Qwen3-VL
-- Qwen2.5VL
-- Llava
-- Gemini3-flash-preview
+- DeepSeek-OCR -3b
+- Qwen3-VL -32b
+- Qwen2.5VL -32b
+- Llava -34b
+- Ministral-3 -14b
 
 ### LLM
 
@@ -57,5 +57,3 @@ Have a look at: OmniDocBench and PubTabNet
 
 ## Evaluation
 check `evaluation.md`
-
----
