@@ -1,0 +1,78 @@
+# Usage Instructions:
+# 1. apply pod, wait until running - check log with: kubectl logs -f extraction-benchmark-pod -n calgo-lab
+# 2. copy script and requirements (repeat for all first):
+#   create the dir:         kubectl exec extraction-benchmark-pod -n calgo-lab -- mkdir -p /workspace/script1
+#   add script:             kubectl cp ./src/script1.py extraction-benchmark-pod:/workspace/script1/ -n calgo-lab
+#   add requirements.txt:   kubectl cp ./requirements1.txt extraction-benchmark-pod:/workspace/script1/requirements.txt -n calgo-lab
+#   ### this is a manual approach, there are probably better automated approaches but as its one time usage I do not mind
+# 3. go into pod: kubectl exec -it extraction-benchmark-pod -n calgo-lab -- /bin/bash
+# 4. install dependencies and run script (repeat for all):
+#   cd /workspace/script1
+#   python -m venv venv1
+#   source venv1/bin/activate
+#   pip install -r requirements.txt
+#   python script1.py
+#   deactivate
+# 5. get results to local machine
+#   kubectl cp calgo-lab/extraction-benchmark-pod:/data/output ./local-outputs
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: extraction-benchmark-pod
+  namespace: calgo-lab
+spec:
+  restartPolicy: Never
+  nodeSelector:
+    gpu: h200  # BE CAREFUL WITH THIS!
+  containers:
+    - name: extraction-benchmark-pod
+      image: pytorch/pytorch:2.10.0-cuda13.0-cudnn9-runtime
+      imagePullPolicy: IfNotPresent
+      command:
+        - "/bin/sh"
+        - "-c"
+        - |
+          apt-get update && apt-get install -y curl
+          apt-get install -y zstd
+          apt install -y python3.12-venv
+          apt install -y pciutils
+          curl -fsSL https://ollama.com/install.sh | sh
+          ollama serve &
+          sleep 10
+          echo "Container ready to run scripts - use 'kubectl exec'."
+          sleep infinity
+      resources:
+        requests:
+          memory: "32Gi"
+          cpu: 8
+          nvidia.com/gpu: 1
+        limits:
+          memory: "128Gi"
+          cpu: 24
+          nvidia.com/gpu: 1
+      volumeMounts:
+        - mountPath: "/data"
+          name: benchmark-data-storage 
+        - mountPath: "/root/.ollama"
+          name: ollama-models
+        - mountPath: "/workspace"
+          name: workspace
+        - mountPath: "/dev/shm"
+          name: dshm
+      env:
+        - name: OLLAMA_HOST
+          value: "http://localhost:11434"
+  volumes:
+    - name: benchmark-data-storage 
+      persistentVolumeClaim:
+        claimName: pdf-extraction-data-pvc 
+    - name: ollama-models
+      persistentVolumeClaim:
+        claimName: pdf-extraction-ollama-models-pvc 
+    - name: workspace
+      emptyDir: {}
+    - name: dshm
+      emptyDir:
+        medium: Memory
+        sizeLimit: 8Gi
