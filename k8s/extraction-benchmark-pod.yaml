@@ -1,6 +1,6 @@
 # Usage Instructions:
 # 1. apply pod, wait until running - check log with: kubectl logs -f extraction-benchmark-pod -n calgo-lab
-# 2. copy script and requirements (repeat for all first):
+# 2. copy script(s) and requirements (repeat for all first):
 #   create the dir:         kubectl exec extraction-benchmark-pod -n calgo-lab -- mkdir -p /workspace/script1
 #   add script:             kubectl cp ./src/script1.py extraction-benchmark-pod:/workspace/script1/ -n calgo-lab
 #   add requirements.txt:   kubectl cp ./requirements1.txt extraction-benchmark-pod:/workspace/script1/requirements.txt -n calgo-lab
