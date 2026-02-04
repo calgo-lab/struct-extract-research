@@ -27,7 +27,7 @@ spec:
     gpu: h200  # BE CAREFUL WITH THIS!
   containers:
     - name: extraction-benchmark-pod
-      image: 2.10.0-cuda12.8-cudnn9-runtime
+      image: pytorch/pytorch:2.10.0-cuda12.8-cudnn9-runtime
       imagePullPolicy: IfNotPresent
       command:
         - "/bin/sh"
@@ -45,16 +45,16 @@ spec:
       resources:
         requests:
           memory: "32Gi"
-          cpu: 8
-          nvidia.com/gpu: 1
+          cpu: "8"
+          nvidia.com/gpu: "1"
         limits:
           memory: "128Gi"
-          cpu: 24
-          nvidia.com/gpu: 1
+          cpu: "24"
+          nvidia.com/gpu: "1"
       volumeMounts:
         - mountPath: "/data"
           name: benchmark-data-storage 
-        - mountPath: "/root/.ollama"
+        - mountPath: "/root/.ollama/models"
           name: ollama-models
         - mountPath: "/workspace"
           name: workspace
