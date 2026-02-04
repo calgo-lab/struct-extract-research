@@ -1,9 +1,9 @@
 # 1: pip install paddlepaddle-gpu==3.3.0 -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
 # 2: pip install paddleocr[all] pandas ollama pydantic
+# 3: pip install opencv-python-headless==4.12.0.88 (because of a new opencv bug)
 import glob
 import os
 from paddleocr import PaddleOCR
-from pathlib import Path
 from time import gmtime, strftime
 from typing import List
 from llm_ollama import extract_courses
@@ -13,10 +13,8 @@ if os.path.exists("/data/images"):
     IMAGES = "/data/images"
     OUTPUT = "/data/output/PPOCRv5"
 else:
-    # TODO: swap to error and return, this is just for testing purposes
-    root = Path(__file__).parent.parent.parent
-    IMAGES = f"{root}/data/images"
-    OUTPUT = f"{root}/data/output/PPOCRv5"
+    print("Path /data/ not found, terminating program!")
+    exit()
 
 if not os.path.exists(OUTPUT):
     print(f"Creating output folder at {OUTPUT}.")
@@ -40,7 +38,7 @@ class TextElement:
     
     def __repr__(self):
         return f"TextElement('{self.text}', with top left corner of bounding box at {self.top_left})"
-    
+
 # TODO: using max settings, decide whether to use these or to find a common ground with others
 paddleocr = PaddleOCR(
     lang="en",
@@ -56,7 +54,7 @@ paddleocr = PaddleOCR(
     use_textline_orientation=True
 )
 
-# # run OCR over all images, create basic structure for text
+# run OCR over all images, create basic structure for text
 text_dict = {}
 for image in image_paths:
     image_name = os.path.basename(image).split(".")[0] 
@@ -102,3 +100,30 @@ for llm_model in LLMS:
         df = extract_courses(text, llm_model)
         df.to_csv(f"{OUTPUT}/{params}/{name}.csv")
     print(f"LLM: {llm_model} done. - {strftime('%Y-%m-%d %H:%M:%S', gmtime())}")
+
+
+# helper functions
+# def __vertical_overlap_ratio(e1, e2):
+#     """
+#     Simple function to compute the ratio of vertical overlap of two bounding boxes. 
+#     """
+#     # get biggest possible vertical line of both boxes
+#     top1 = min(e1.top_left[1], e1.top_right[1])
+#     bot1 = max(e1.bot_left[1], e1.bot_right[1])
+#     top2 = min(e2.top_left[1], e2.top_right[1])
+#     bot2 = max(e2.bot_left[1], e2.bot_right[1])
+
+#     # find intersection
+#     overlap_top = max(top1, top2)
+#     overlap_bot = min(bot1, bot2)
+#     overlap_height = max(0, overlap_bot - overlap_top)
+
+#     # find smallest height to normalize
+#     height1 = bot1 - top1
+#     height2 = bot2 - top2
+
+#     min_height = min(height1, height2)
+#     if min_height == 0:
+#         return 0 
+    
+#     return overlap_height / min_height
