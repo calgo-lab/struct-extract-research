@@ -19,6 +19,7 @@ else:
 if not os.path.exists(OUTPUT):
     print(f"Creating output folder at {OUTPUT}.")
     os.makedirs(OUTPUT)
+    os.makedirs(f"{OUTPUT}/text")
 
 LLMS = ["qwen3:0.6b", "qwen3:4b", "qwen3:14b", "qwen3:32b", "qwen3:235b"]
 
@@ -89,6 +90,9 @@ for image in image_paths:
         # else:
         #     text += '\t' 
         text += '\t'
+
+    with open(f"{OUTPUT}/text/{image_name}.txt", "w", encoding="utf-8") as text_file:
+        text_file.write(text)
 
     text_dict[image_name] = text
 
