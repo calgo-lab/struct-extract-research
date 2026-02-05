@@ -3,9 +3,9 @@
 import glob
 import os
 import pytesseract
+from llm_ollama import extract_courses
 from PIL import Image
 from time import gmtime, strftime
-from llm_ollama import extract_courses
 
 if os.path.exists("/data/images"):
     print("Path /data/... found.")

@@ -2,8 +2,8 @@
 import easyocr
 import glob
 import os
-from time import gmtime, strftime
 from llm_ollama import extract_courses
+from time import gmtime, strftime
 
 if os.path.exists("/data/images"):
     print("Path /data/... found.")

@@ -3,9 +3,10 @@
 # 3: pip install opencv-python-headless==4.12.0.88 (because of a new opencv bug)
 import glob
 import os
+from llm_ollama import extract_courses
 from paddleocr import PPStructureV3
 from time import gmtime, strftime
-from llm_ollama import extract_courses
+
 
 if os.path.exists("/data/images"):
     print("Path /data/... found.")
