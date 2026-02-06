@@ -1,5 +1,6 @@
+# 0: check if pydantic is recognized: python -c "import torch; print(torch.cuda.is_available())"
+#       if not, run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 # 1: pip install mineru[all] pandas ollama pydantic
-# 2: if torch (gpu, cuda...) not found: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 import glob
 import os
 from mineru.backend.hybrid.hybrid_analyze import doc_analyze as hybrid_doc_analyze

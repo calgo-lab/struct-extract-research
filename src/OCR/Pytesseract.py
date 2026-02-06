@@ -1,3 +1,5 @@
+# 0: check if pydantic is recognized: python -c "import torch; print(torch.cuda.is_available())"
+#       if not, run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
 # 1: (sudo) apt install tesseract-ocr
 # 2: pip install pytesseract pandas ollama pydantic
 import glob
