@@ -15,7 +15,7 @@ else:
     print("Path /data/ not found, terminating program!")
     exit()
 
-if not os.path.exists(OUTPUT):
+if not os.path.exists(f"{OUTPUT}/text"):
     print(f"Creating output folder at {OUTPUT}.")
     os.makedirs(f"{OUTPUT}/text")
 
@@ -36,10 +36,8 @@ for image in image_paths:
     for paragraph in result:
         text += paragraph.strip()
         text += '\t'
-
     with open(f"{OUTPUT}/text/{image_name}.txt", "w", encoding="utf-8") as text_file:
         text_file.write(text)
-
     text_dict[image_name] = text
 
 # extract relevant entries with each ollama model

@@ -12,12 +12,12 @@ if os.path.exists("/data/images"):
     print("Path /data/... found.")
     # using pdfs instead of images, due to ppstructure sometimes running into a numpy error with those
     PDFS = "/data/pdfs"  
-    OUTPUT = "/data/output/PPSTRUCTUREv3"
+    OUTPUT = "/data/output/PPStructureV3"
 else:
     print("Path /data/ not found, terminating program!")
     exit()
 
-if not os.path.exists(OUTPUT):
+if not os.path.exists(f"{OUTPUT}/text"):
     print(f"Creating output folder at {OUTPUT}.")
     os.makedirs(f"{OUTPUT}/text")
 

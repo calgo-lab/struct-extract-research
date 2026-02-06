@@ -20,7 +20,7 @@ else:
     #pytesseract.pytesseract.tesseract_cmd = r'C:/Program Files/Tesseract-OCR/tesseract.exe'
     exit()
 
-if not os.path.exists(OUTPUT):
+if not os.path.exists(f"{OUTPUT}/text"):
     print(f"Creating output folder at {OUTPUT}.")
     os.makedirs(f"{OUTPUT}/text")
 

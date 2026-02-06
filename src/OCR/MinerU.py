@@ -19,7 +19,7 @@ else:
     print("Path /data/ not found, terminating program!")
     exit()
 
-if not os.path.exists(OUTPUT):
+if not os.path.exists(f"{OUTPUT}/text"):
     print(f"Creating output folder at {OUTPUT}.")
     os.makedirs(f"{OUTPUT}/text")
 
