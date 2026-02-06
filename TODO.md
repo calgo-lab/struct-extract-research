@@ -1,4 +1,13 @@
-- [X] Ollama PVC mit allen Modellen befüllen
-- [X] upload images and pdfs to cluster pvc for access
-- [ ] Code schreiben der mit OCR und LLM arbeitet
-- [ ] Script erstellen der den Code runned und auf die Ollama-Modelle über den PVC zugreift
+- [ ] Structure-Code für Bounding-Box basierte OCRs ohne eigenen Strukturoutput
+- [ ] Prompt anpassen
+- [ ] OCR Code ausführen
+    - [ ] docTR
+    - [ ] EasyOCR
+    - [ ] MinerU
+    - [ ] PPOCRv5
+    - [ ] PPStructureV3
+    - [ ] Pytesseract
+- [ ] Beispielvis für FP, TP, TN
+- [ ] Code VLMs
+- [ ] Evalcode
+
