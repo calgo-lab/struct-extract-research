@@ -14,20 +14,21 @@ Have a look at: OmniDocBench and PubTabNet
 ## Models
 ### OCR
 
-*for this selection the most popular OCR-models under the tag `OCR` on Github have been chosen*
+*for this selection the most popular OCR-models under the tag `OCR` on Github aswell as some featured in recent papers have been chosen*
 
-- [Tesseract](https://github.com/tesseract-ocr/tesseract)
+- [Pytesseract](https://github.com/madmaze/pytesseract)
 - [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)
     - PP-OCRv5
     - PP-StructureV3
 - [MinerU](https://github.com/opendatalab/MinerU)
-- [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) 
 - [EasyOCR](https://github.com/JaidedAI/EasyOCR)
+- [docTR](https://github.com/mindee/doctr)
 
-*additionally frequently named models, that havent been part of the list yet but perfomed well in other papers*
+*additionally frequently named OCR, that havent been part of the list yet but perfomed well in other papers or on GitHub*
 
 - [MMOCR](https://github.com/open-mmlab/mmocr)  - hasn't been updated for a while, maybe don't use it
-- [docTR](https://github.com/mindee/doctr)
+- [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) - not a model but software running on either Paddle or Rapid
+
 
 ### VLM
 
