@@ -1,5 +1,5 @@
-- [ ] Structure-Code für Bounding-Box basierte OCRs ohne eigenen Strukturoutput
-- [ ] Prompt anpassen
+- [X] Structure-Code für Bounding-Box basierte OCRs ohne eigenen Strukturoutput <- keep is as
+- [X] Prompt anpassen
 - [ ] OCR Code ausführen
     - [ ] docTR
     - [ ] EasyOCR
