@@ -31,7 +31,6 @@ text_dict = {}
 for image in image_paths:
     image_name = os.path.basename(image).split(".")[0] 
     result = reader.readtext(image=image, detail=0, paragraph=True)
-    # TODO: decide if some formatting should be done, bounding boxes exist as they do in PPOCRv5
     text = ""
     for paragraph in result:
         text += paragraph.strip()
