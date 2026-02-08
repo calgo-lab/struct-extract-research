@@ -12,7 +12,7 @@ class Course(BaseModel):
 class Courses(BaseModel):
     courses: List[Course]
 
-def extract_courses(image, vlm_model) -> pd.DataFrame:
+def extract_courses(image, vlm_model, context_size) -> pd.DataFrame:
     response: GenerateResponse = generate(
         model=vlm_model,
         prompt=f"""
@@ -80,6 +80,7 @@ def extract_courses(image, vlm_model) -> pd.DataFrame:
             images = [image],
             options = {
                 "temperature" : 0,
+                "num_ctx": context_size, 
                 "num_predict": 2048,  # to prevent rambling like it is known especially with smaller models: https://github.com/ollama/ollama/issues/9070
             },
             stream=False,
