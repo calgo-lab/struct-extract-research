@@ -9,7 +9,11 @@ The evaluation dataset consists of 100 course transcripts from applications to t
 Have a look at: OmniDocBench and PubTabNet
 
 ## Hardware
-*w.i.p.*
+All extraction tasks are performed on the Cluster of the BHT, there the following hardware specifications have been requested:
+
+- **CPU**: min:8, max:24 (Cores)
+- **RAM**: min:32Gi, max: 128Gi
+- **GPU**: 1x H200 (141GB Vram)
 
 ## Models
 ### OCR
@@ -29,12 +33,10 @@ Have a look at: OmniDocBench and PubTabNet
 - [MMOCR](https://github.com/open-mmlab/mmocr)  - hasn't been updated for a while, maybe don't use it
 - [Umi-OCR](https://github.com/hiroi-sora/Umi-OCR) - not a model but software running on either Paddle or Rapid
 
-
 ### VLM
 
-*popular VLMs on GitHub and Ollama*
+*popular VLMs on Ollama*
 
-- PaddleOCR-VL
 - Gemma3 -27b (similar size for the others, if possible)
 
 *additionally frequently named models, that havent been part of the list yet but perfomed well in other papers*
@@ -42,7 +44,7 @@ Have a look at: OmniDocBench and PubTabNet
 - DeepSeek-OCR -3b
 - Qwen3-VL -32b
 - Qwen2.5VL -32b
-- Llava -34b
+- Llava -7b
 - Ministral-3 -14b
 
 ### LLM
