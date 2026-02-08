@@ -22,7 +22,7 @@ spec:
           ollama pull gemma3:27b
           ollama pull qwen2.5vl:32b
           ollama pull qwen3-vl:32b
-          ollama pull llava:34b
+          ollama pull llava:7b
           ollama pull deepseek-ocr:3b
           ollama pull ministral-3:14b
           echo "All models downloaded successfully"
