@@ -1,6 +1,6 @@
-# 0: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-# 1: (sudo) apt install tesseract-ocr
-# 2: pip install pytesseract pandas ollama pydantic
+# 1: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+# 2: (sudo) apt install tesseract-ocr
+# 3: pip install pytesseract pandas ollama pydantic
 import glob
 import os
 import pytesseract

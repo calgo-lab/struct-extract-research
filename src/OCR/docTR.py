@@ -1,5 +1,5 @@
-# 0: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
-# 1: pip install python-doctr pandas ollama pydantic
+# 1: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+# 2: pip install python-doctr pandas ollama pydantic
 # 3: pip install opencv-python-headless==4.12.0.88 (because of a new opencv bug)
 import glob
 import os
