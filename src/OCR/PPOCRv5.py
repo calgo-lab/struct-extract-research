@@ -8,7 +8,6 @@ from paddleocr import PaddleOCR
 from time import gmtime, strftime
 from typing import List
 
-
 if os.path.exists("/data/images"):
     print("Path /data/... found.")
     IMAGES = "/data/images"

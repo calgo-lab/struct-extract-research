@@ -1,6 +1,6 @@
-# 0: check if pydantic is recognized: python -c "import torch; print(torch.cuda.is_available())"
-#       if not, run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+# 0: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 # 1: pip install mineru[all] pandas ollama pydantic
+# 2: pip install opencv-python-headless==4.12.0.88 (because of a new opencv bug)
 import glob
 import os
 from mineru.backend.hybrid.hybrid_analyze import doc_analyze as hybrid_doc_analyze

@@ -1,6 +1,6 @@
-# 0: check if pydantic is recognized: python -c "import torch; print(torch.cuda.is_available())"
-#       if not, run: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu126
+# 0: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 # 1: pip install python-doctr pandas ollama pydantic
+# 3: pip install opencv-python-headless==4.12.0.88 (because of a new opencv bug)
 import glob
 import os
 from doctr.io import DocumentFile
