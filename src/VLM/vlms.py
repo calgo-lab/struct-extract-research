@@ -16,7 +16,7 @@ else:
     exit()
 
 # models and context sizes
-VLMS = ["gemma3:27b", "ministral-3:14b", "deepseek-ocr:3b", "llava:7b", "qwen2.5vl:32b", "qwen3-vl:32b"]
+VLMS = ["gemma3:27b", "ministral-3:14b", "llava:7b", "qwen2.5vl:32b", "qwen3-vl:32b"]
 
 image_paths = glob.glob(f"{IMAGES}/*.jpg")
 
