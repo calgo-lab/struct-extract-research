@@ -60,7 +60,7 @@ def extract_courses(text, llm_model) -> pd.DataFrame:
                     - "Mathematics" includes every course that directly or indirectly is about basics of or a field in Mathmatics: Mathematics for Programmers, Linear Algebra, Statistics. 
                   Use your own judgement.
                 - While you may use judgment to handle OCR noise during classification if a transcript is given or if a course may fall under the given definition, extract every piece of information exactly as given in the OCR result. Do not fix any typos for the output and keep capitalization as is. Be very strict about this!
-                    - You are allowed to remove text if it is not part of i.e. the course name but stands right next to it.
+                    - You are allowed to remove text if it is not part of i.e. the course name itself but stands right next to it like a code or a year for example.
                 - If a document has multiple languages, prioritize the English designations.
                 - If multiple types of credits are denominated, use the ones commonly known as "ECTS". If no credits at all are mentioned, default to `None`.
                 - If multiple types of grades are given for a course, prioritize letter-grades (only such like A, B+, CC, 0 not full words) over numerical grades. If no grades at all are mentioned, default to `None`.
@@ -86,21 +86,34 @@ def extract_courses(text, llm_model) -> pd.DataFrame:
             """,
             options = {
                 "temperature" : 0,
-                "num_ctx": 8192  # to be safe
+                "num_predict": 8192 if llm_model == "qwen3:0.6b" else None  # to prevent rambling like it is known especially with smaller models: https://github.com/ollama/ollama/issues/9070
             },
             stream=False,
             format=Courses.model_json_schema()
     )
+    
     try:
-        data = json.loads(response["response"])
+        raw_data = response.get("response")
+        if not raw_data or not raw_data.strip():
+            # some model sizes put their answer into thinking instead
+            print("Try thinking data.")
+            raw_data = response.get("thinking")
+
+        data = json.loads(raw_data)
         df = pd.DataFrame(data["courses"])
         # if empty courses list was returned, create an empty df with column headers
         if df.empty:
             df = pd.DataFrame(columns=["academic_field", "course_name", "grade", "awarded_credits"])
+
         # fill empty cells (None) with "N/A"
         df['grade'] = df['grade'].fillna("N/A")
         df['awarded_credits'] = df['awarded_credits'].fillna("N/A")
+
     except Exception as e:
+        response_dict = response.model_dump()
+        response_without_context = {k: v for k, v in response_dict.items() if k != 'context'}
+        print(f"Exception was thrown, raw response: {response_without_context}")
+        print("="*30)
         # if answer is not following the structure, return empty df
         df = pd.DataFrame(columns=["academic_field", "course_name", "grade", "awarded_credits"])
 
