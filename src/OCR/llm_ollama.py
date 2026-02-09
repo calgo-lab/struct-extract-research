@@ -86,7 +86,7 @@ def extract_courses(text, llm_model) -> pd.DataFrame:
             """,
             options = {
                 "temperature" : 0,
-                "num_predict": 8192 if llm_model == "qwen3:0.6b" else 16384  # to prevent rambling like it is known especially with smaller models: https://github.com/ollama/ollama/issues/9070
+                "num_predict": 8192  # to prevent rambling like it is known especially with smaller models: https://github.com/ollama/ollama/issues/9070
             },
             stream=False,
             format=Courses.model_json_schema()
