@@ -60,7 +60,7 @@ def extract_courses(image, vlm_model) -> pd.DataFrame:
                     - "Mathematics" includes every course that directly or indirectly is about basics of or a field in Mathmatics: Mathematics for Programmers, Linear Algebra, Statistics. 
                   Use your own judgement.
                 - While you may use judgment to handle noise during classification if a transcript is given or if a course may fall under the given definition, extract every piece of information exactly as given in the image. Do not fix any typos for the output and keep capitalization as is. Be very strict about this!
-                    - You are allowed to remove text if it is not part of i.e. the course name but stands right next to it.
+                    - You are allowed to remove text if it is not part of i.e. the course name itself but stands right next to it like a code or a year for example.
                 - If a document has multiple languages, prioritize the English designations.
                 - If multiple types of credits are denominated, use the ones commonly known as "ECTS". If no credits at all are mentioned, default to `None`.
                 - If multiple types of grades are given for a course, prioritize letter-grades (only such like A, B+, CC, 0 not full words) over numerical grades. If no grades at all are mentioned, default to `None`.
@@ -85,7 +85,7 @@ def extract_courses(image, vlm_model) -> pd.DataFrame:
             stream=False,
             format=Courses.model_json_schema()
     )
-    
+
     try:
         raw_data = response.get("response")
         if not raw_data or not raw_data.strip():
