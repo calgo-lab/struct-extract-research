@@ -12,7 +12,7 @@ class Course(BaseModel):
 class Courses(BaseModel):
     courses: List[Course]
 
-def extract_courses(image, vlm_model, context_size) -> pd.DataFrame:
+def extract_courses(image, vlm_model) -> pd.DataFrame:
     response: GenerateResponse = generate(
         model=vlm_model,
         prompt=f"""
@@ -80,22 +80,34 @@ def extract_courses(image, vlm_model, context_size) -> pd.DataFrame:
             images = [image],
             options = {
                 "temperature" : 0,
-                "num_ctx": context_size, 
-                "num_predict": 2048,  # to prevent rambling like it is known especially with smaller models: https://github.com/ollama/ollama/issues/9070
+                "num_predict": 8192,  # to prevent rambling like it is known especially with smaller models: https://github.com/ollama/ollama/issues/9070
             },
             stream=False,
             format=Courses.model_json_schema()
     )
+    
     try:
-        data = json.loads(response["response"])
+        raw_data = response.get("response")
+        if not raw_data or not raw_data.strip():
+            # some model sizes put their answer into thinking instead
+            print("Try thinking data.")
+            raw_data = response.get("thinking")
+
+        data = json.loads(raw_data)
         df = pd.DataFrame(data["courses"])
         # if empty courses list was returned, create an empty df with column headers
         if df.empty:
             df = pd.DataFrame(columns=["academic_field", "course_name", "grade", "awarded_credits"])
+
         # fill empty cells (None) with "N/A"
         df['grade'] = df['grade'].fillna("N/A")
         df['awarded_credits'] = df['awarded_credits'].fillna("N/A")
+
     except Exception as e:
+        response_dict = response.model_dump()
+        response_without_context = {k: v for k, v in response_dict.items() if k != 'context'}
+        print(f"Exception was thrown, raw response: {response_without_context}")
+        print("="*30)
         # if answer is not following the structure, return empty df
         df = pd.DataFrame(columns=["academic_field", "course_name", "grade", "awarded_credits"])
 
