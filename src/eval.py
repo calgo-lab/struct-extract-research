@@ -97,8 +97,7 @@ eval_configs = {
     }
 }
 
-ocr_results_storage = {name: [] for name in eval_configs.keys()}
-vlm_results_storage = {name: [] for name in eval_configs.keys()}
+results_storage = {name: [] for name in eval_configs.keys()}
 
 # EVAL OCR
 for ocr_engine in OCR:
@@ -122,6 +121,7 @@ for ocr_engine in OCR:
         for name in eval_configs.keys():
             tmp_df = pd.DataFrame(param_results[name])
             mean_results = {
+                "Eval Config": name,
                 "OCR Engine": ocr_engine,
                 "Model": f"Qwen3:{params}",
                 "Precision": tmp_df["Precision"].mean(),
@@ -129,7 +129,7 @@ for ocr_engine in OCR:
                 "F1": tmp_df["F1"].mean(),
                 "Jaccard": tmp_df["Jaccard"].mean()
             }
-            ocr_results_storage[name].append(mean_results)
+            results_storage[name].append(mean_results)
 
 # EVAL VLM
 for vlm_name, vlm_dir_name in VLM.items():
@@ -152,42 +152,19 @@ for vlm_name, vlm_dir_name in VLM.items():
     for name in eval_configs.keys():
         tmp_df = pd.DataFrame(param_results[name])
         mean_results = {
+            "Eval Config": name,
+            "OCR Engine": "N/A",
             "Model": f"{vlm_name}",
             "Precision": tmp_df["Precision"].mean(),
             "Recall": tmp_df["Recall"].mean(),
             "F1": tmp_df["F1"].mean(),
             "Jaccard": tmp_df["Jaccard"].mean()
         }
-        vlm_results_storage[name].append(mean_results)
+        results_storage[name].append(mean_results)
 
-print("OCR: ALL")
-ocr_result_all_df = pd.DataFrame(ocr_results_storage["all"])
-print(ocr_result_all_df)
-print("="*60)
-print("OCR: COURSES")
-ocr_result_only_courses_df = pd.DataFrame(ocr_results_storage["only_courses"])
-print(ocr_result_only_courses_df)
-print("="*60)
-print("OCR: NO CREDITS")
-ocr_result_no_credits_df = pd.DataFrame(ocr_results_storage["no_credits"])
-print(ocr_result_no_credits_df)
-print("="*60)
-print("OCR: NO GRADES")
-ocr_result_no_grades_df = pd.DataFrame(ocr_results_storage["no_grades"])
-print(ocr_result_no_grades_df)
-print("="*60)
-print("VLM: ALL")
-vlm_result_all_df = pd.DataFrame(vlm_results_storage["all"])
-print(vlm_result_all_df)
-print("="*60)
-print("VLM: COURSES")
-vlm_result_only_courses_df = pd.DataFrame(vlm_results_storage["only_courses"])
-print(vlm_result_only_courses_df)
-print("="*60)
-print("VLM: NO CREDITS")
-vlm_result_no_credits_df = pd.DataFrame(vlm_results_storage["no_credits"])
-print(vlm_result_no_credits_df)
-print("="*60)
-print("VLM: NO GRADES")
-vlm_result_no_grades_df = pd.DataFrame(vlm_results_storage["no_grades"])
-print(vlm_result_no_grades_df)
+result_df = pd.DataFrame(columns=["Eval Config", "OCR Engine", "Model", "Precision", "Recall", "F1", "Jaccard"])
+for entry in results_storage.values():
+    result_df = pd.concat([result_df, pd.DataFrame(entry)], ignore_index=True)
+
+print(result_df)
+result_df.to_json("data/benchmark_results.json")
