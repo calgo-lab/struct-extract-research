@@ -41,7 +41,6 @@ All extraction tasks are performed on the Cluster of the BHT, there the followin
 
 *additionally frequently named models, that havent been part of the list yet but perfomed well in other papers*
 
-- DeepSeek-OCR -3b
 - Qwen3-VL -32b
 - Qwen2.5VL -32b
 - Llava -7b
