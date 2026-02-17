@@ -137,3 +137,26 @@
 - Limitations
 
 ---
+
+## Result 
+- Abstract
+- Introduction
+    - Whats the current state (OCR, LLM, VLM)
+    - What are we going to look at
+- Related work
+- Methodology
+    - Goal
+    - Data+Ground Truth Extraction
+    - OCR+LLM based Extraction
+    - VLM based Extraction
+- Evaluation
+    - Data preparation
+    - Data "Tokenization"
+    - Metrics
+- Results (Tables, Plots and Evaluating)
+- Conclusion
+- References
+(Appendix)
+- Data Examples
+- Hardware
+- Prompts
