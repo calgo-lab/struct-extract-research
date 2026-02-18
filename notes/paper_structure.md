@@ -143,11 +143,11 @@
 - Introduction
     - Whats the current state (OCR, LLM, VLM)
     - What are we going to look at
-- Related work
+- Related work (if too short put into Introduction) -> ganze forschungslandschaft abbilden und zeigen wo lücken sind, was is noch nachzuarbeiten, das hab ich gemacht etc <- **das anfangen**
 - Methodology
     - Goal
     - Data+Ground Truth Extraction
-    - OCR+LLM based Extraction
+    - OCR+LLM based Extraction + why only one LLM
     - VLM based Extraction
 - Evaluation
     - Data preparation
