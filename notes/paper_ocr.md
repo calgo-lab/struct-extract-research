@@ -23,7 +23,7 @@
 - specifies on extraction of arabic tests
 - uses LLMs aswell for generation of data for visuals and tables (uses multiple - closed aswell as open)
 - also uses VLMs along OCRs
-- for OCR it uses: Tesseract, EasyOOCR, AzureOCR (last one is closed, so wont be used)
+- for OCR it uses: Tesseract, EasyOCR, AzureOCR (last one is closed, so wont be used)
 
 ## 3. Benchmarking Performance Analysis of Optical Character Recognition Techniques
 > **Metadata**
