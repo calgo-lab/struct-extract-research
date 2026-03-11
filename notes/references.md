@@ -14,7 +14,7 @@ TODO: [Ref19] [A ROBUST FRAMEWORK FOR DATA EXTRACTION FROMUNSTRUCTURED SOURCES U
 
 [Ref2] [Multi-Modal AI for Structured Data Extraction from Documents ](https://ijeret.org/index.php/ijeret/article/view/273)
 
-[Ref3*] [Figure Text Extraction in Biomedical Literature](/https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0015338)
+[Ref3*] [Figure Text Extraction in Biomedical Literature](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0015338)
 
 [Ref4] [A Survey on Machine Reading Comprehension—Tasks, Evaluation Metrics and Benchmark Datasets](https://www.mdpi.com/2076-3417/10/21/7640)
 
