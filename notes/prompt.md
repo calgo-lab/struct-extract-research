@@ -8,9 +8,7 @@ Following techniques have been used:
 - short simple instructions
 - chain of verification
 
-TODO: add references to references.md and cite here
-
-issues during extraction:
+Issues during extraction:
 - small models (0.6b) ramble, this way they never come to an end and when context limit is reached the output is a lot of entries but no proper json (not ended with ]}, repeated values)
 - some LLMs dont put answer into {response} but {thinking} (4b, 14b, 235b), VLMS qwen3-vl:32b
 - 32b sometimes had issues keeping to the structure, not creating fields for grades and credits, therefor being not the right format and being turned into an empty df
